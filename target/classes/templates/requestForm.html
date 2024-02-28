@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <title>ระบบแจ้งซ่อม</title>
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+        }
+
+        .header {
+            background-color: #022F61;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+       
+
+        .menu-icon, .add-icon, .user-icon {
+			font-size: normal;
+            margin: 0 10px;
+        }
+        
+        .user-icon {
+        	font-size: normal;
+       		margin-left: auto;
+    	}
+
+        .header h2, .header h3 {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 90%;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+		.inner-container {
+            background-color: #f7f7f7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+		form .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; /* Allow elements to wrap */
+        }
+
+        form label {
+            flex-basis: 22%; /* Set a fixed width for labels */
+            font-weight: bold;
+            margin-right: 10px;
+            margin-top: 30px;
+        }
+        form input{
+			margin-top: 20px;
+            flex: 2;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+		.custom-select {
+			flex-basis: 76%;
+			width: 535px;
+			padding: 8px;
+			margin-top: auto;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			font-size: 16px;
+		}
+
+        form textarea {
+			margin-top: auto;
+            height: 100px;
+            resize: vertical;
+			margin-top: 25px;
+            flex: 2;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }        
+
+		.req {
+            flex-basis: 35%; /* Set a fixed width for labels */
+            font-weight: normal;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+		.number {
+            flex-basis: 15%; /* Set a fixed width for labels */
+            font-weight: normal;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+        .tel{
+			flex-basis: 15%;
+            margin-right: 10px;
+            margin-top: 20px;
+		}
+		.text {
+            flex-basis: 30%; /* Set a fixed width for labels */
+            font-weight: normal;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1; /* Let buttons fill the remaining space */
+            padding: 8px 16px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px; /* Add some space above buttons */
+        }
+
+        button.submit {
+            background-color: #219C52;
+            color: white;
+            margin-right: 10px;
+        }
+
+        button.cancel {
+            background-color: #FF6666;
+            color: white;
+        }
+		table {
+			width: 90%;
+			margin: 20px auto; /* Center the table horizontally */
+			border-collapse: collapse;
+			margin-top: 20px;
+		}
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #022F61;
+            color: white;
+        }
+
+        .details-link {
+            text-decoration: none;
+            color: #004087;
+        }
+
+        td {
+            text-align: left;
+        }
+
+        .table-actions {
+            display: flex;
+            justify-content: center;
+        }
+
+        .edit, .delete {
+            color: #004087;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+		.tab {
+			display: inline-block;
+			margin-left: 4em;
+		}
+		.tab2 {
+            display: inline-block;
+            margin-left:11.5em;
+        }
+		.tabperson {
+			display: inline-block;
+			margin-left: 37em;
+		}
+	</style>
+</head>
+<body>
+    <div class="header">
+		<h2 class="system-title" id="clickable-heading">ระบบแจ้งซ่อม</h2>
+		<span class="tab"></span>
+        <div class="menu-icon">
+            <i class="fas fa-bars" id="clickable-bars" > รายการแจ้งซ่อม</i>
+        </div>
+        <div class="add-icon">
+            <i class="fas fa-plus" id="clickable-plus" > แจ้งปัญหา/แจ้งซ่อม</i> 
+        </div>
+		<span class="tabperson"></span>
+        <div class="user-icon">
+            <i class="fas fa-user"></i>
+        </div>
+    </div>
+    <div class="container" style="max-width: 800px;">
+        <form action="#" th:action="@{/repair_request}" th:object="${repair_request}" method="post">
+            <div class="form-group">
+				<label for="request_date">วันที่แจ้งซ่อม:</label>
+				<input type="date" id="request_date" name="request_date" th:field="*{rq_date}" required readonly>
+			</div>
+            <div class="form-group">
+                <label for="requester">ผู้แจ้งซ่อม:</label>
+                <select th:field="*{user}" class="custom-select" >
+				    <th:block th:each = "user:${user}">
+				   		<option th:text = "${user.username}" th:value="${user.user_id}">Select user</option>
+			        </th:block>
+				</select>
+            </div>
+            <div class="form-group">
+                <label for="location" style="margin-top: -70px;">อาคาร/สถานที่:</label>
+                <textarea id="Location" name="Location" rows="4" th:field="*{rq_loc}" required placeholder="Location"></textarea>
+                <span class="error" th:if="${#fields.hasErrors('rq_loc')}" th:errors="*{rq_loc}"></span>
+
+            </div>
+            <div class="form-group">
+                <label for="number">โทรศัพทฺ์ติดต่อ:</label>
+                <input type="tel" id="number" name="number" th:field="*{user.tel}" required placeholder="Enter Contact Number">
+                <span class="error" th:if="${#fields.hasErrors('user.tel')}" th:errors="*{user.tel}"></span>
+            </div>
+			<div class="form-group">
+				<label for="report">รายการแจ้งซ่อม:</label>
+				<select id="report" name="report"  class="custom-select" th:field="*{rq_type}" required>
+					<option value="อื่นๆ">ชนิดของรายการแจ้งซ่อม</option>
+					<option value="อุปกรณ์(IT)">อุปกรณ์(IT)</option>
+					<option value="ซ่อมบำรุง">ซ่อมบำรุง</option>
+					<option value="โปรแกรม(IT)">โปรแกรม(IT)</option>
+					<option value="ระบบเครือข่าย">ระบบเครือข่าย</option>
+					<option value="อื่นๆ">อื่นๆ</option>
+				</select>
+			</div>
+			<div class="form-group" style="display: none;">
+				<label for="report">สถานะ:</label>
+				<select id="report" name="report"  class="custom-select" th:field="*{rq_status}" required>
+					<option value="รอซ่อม">รอซ่อม</option>
+				</select>
+			</div>
+            <div class="form-group">
+                <label for="description" style="margin-top: -70px;">รูปภาพ/รายละเอียด:</label>
+                <textarea id="description" name="description" rows="4"  th:field="*{rq_des}" required placeholder="Describe the issue"></textarea>
+            	<span class="error" th:if="${#fields.hasErrors('rq_des')}" th:errors="*{rq_des}"></span>
+            </div>
+            <div class="form-group" >
+				<span class="tab2"></span>
+				<input type="file" id="image" name="image" accept="image/*" style="margin-top: -5px;" >
+			</div>
+            <button type="submit" class="submit">บันทีก</button>
+            <button type="button" class="cancel" onclick="">ยกเลิก</button>
+        </form>
+    </div>
+    <script>
+		document.addEventListener('DOMContentLoaded', function() {
+		    var today = new Date();
+		    var dd = String(today.getDate()).padStart(2, '0');
+		    var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+		    var yyyy = today.getFullYear();
+		
+		    today = yyyy + '-' + mm + '-' + dd;
+		    document.getElementById('request_date').value = today;
+		});
+		document.getElementById("clickable-heading").addEventListener("click", function() {
+		    window.location.href = "/";
+		});
+		document.getElementById("clickable-bars").addEventListener("click", function() {
+		    window.location.href = "/";
+		});
+		document.getElementById("clickable-plus").addEventListener("click", function() {
+		    window.location.href = "/repair_request";
+		});
+	</script>
+</body>
+</html>

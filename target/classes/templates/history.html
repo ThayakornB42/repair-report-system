@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- FontAwesome CSS -->
+    <title>ระบบแจ้งซ่อม</title>
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+        }
+
+        .header {
+            background-color: #022F61;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+       
+
+        .menu-icon, .add-icon, .user-icon {
+            font-size: normal;
+            margin: 0 10px;
+        }
+        
+        .user-icon {
+        	font-size: normal;
+       		margin-left: auto;
+    	}
+
+        .header h2, .header h3 {
+            margin: 0;
+            margin-bottom: 10px;
+        }
+
+
+        .container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 800px; /* Adjusted max width */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd; /* Added border */
+            padding: 20px; /* Added padding */
+        }
+
+        .inner-container {
+            background-color: #f7f7f7;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+        }
+
+        form .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap; /* Allow elements to wrap */
+        }
+
+        form label {
+            flex-basis: 22%; /* Set a fixed width for labels */
+            font-weight: bold;
+            margin-right: 10px;
+            margin-top: 30px;
+        }
+        form input{
+			margin-top: 20px;
+            flex: 2;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+		.custom-select {
+			flex-basis: 76%;
+			width: 535px;
+			padding: 8px;
+			margin-top: auto;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			font-size: 16px;
+		}
+
+        form textarea {
+			margin-top: auto;
+            height: 100px;
+            resize: vertical;
+			margin-top: 25px;
+            flex: 2;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }        
+
+		.req {
+            flex-basis: 35%; /* Set a fixed width for labels */
+            font-weight: normal;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+		.number {
+            flex-basis: 15%; /* Set a fixed width for labels */
+            font-weight: normal;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+        .tel{
+			flex-basis: 15%;
+            margin-right: 10px;
+            margin-top: 20px;
+		}
+		.text {
+            flex-basis: 30%; /* Set a fixed width for labels */
+            font-weight: normal;
+            margin-right: 10px;
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1; /* Let buttons fill the remaining space */
+            padding: 8px 16px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px; /* Add some space above buttons */
+        }
+
+        button.submit {
+            background-color: #219C52;
+            color: white;
+            margin-right: 10px;
+        }
+
+        button.cancel {
+            background-color: #FF6666;
+            color: white;
+        }
+
+        .tab {
+            display: inline-block;
+            margin-left: 4em;
+        }
+        .tab2 {
+            display: inline-block;
+            margin-left: 11em;
+        }
+        .tabperson {
+            display: inline-block;
+            margin-left: 35em;
+        }
+
+        .container-header {
+            background-color: #4CAF50; /* Green color */
+            color: white;
+            border-radius: 10px 10px 0 0; /* Rounded top corners */
+            text-align: center; /* Centered text */
+            position: auto; /* Added position relative */
+            z-index: 1; /* Added z-index */
+            margin: -20px;
+        }
+		.container-header1 {
+            background-color: #10A5C6; /* Green color */
+            color: white;
+            border-radius: 10px 10px 0 0; /* Rounded top corners */
+            text-align: center; /* Centered text */
+            position: auto; /* Added position relative */
+            z-index: 1; /* Added z-index */
+            margin: -20px;
+        }
+		.container-header1 h4 {
+            margin: 0;
+            margin-bottom: 10px;
+            padding: 15px 15px; /* Added padding */
+        }
+
+        .container-header h4 {
+            margin: 0;
+            margin-bottom: 10px;
+            padding: 15px 15px; /* Added padding */
+        }
+
+        .container-out {
+            background-color: #f7f7f7;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+        }
+
+     #description {
+        white-space: pre-line;
+    }
+
+    </style>
+</head>
+
+<body>
+    <div class="header">
+		<h2 class="system-title" id="clickable-heading">ระบบแจ้งซ่อม</h2>
+		<span class="tab"></span>
+        <div class="menu-icon">
+            <i class="fas fa-bars" id="clickable-bars" > รายการแจ้งซ่อม</i>
+        </div>
+        <div class="add-icon">
+            <i class="fas fa-plus" id="clickable-plus" > แจ้งปัญหา/แจ้งซ่อม</i> 
+        </div>
+		<span class="tabperson"></span>
+        <div class="user-icon">
+            <i class="fas fa-user"></i>
+        </div>
+    </div>
+    
+    <div class="container-out" th:object="${repair_request}">
+        <div class="container">
+            <h3>รายละเอียดการแจ้งซ่อม</h3>
+            <div class="inner-container">
+                <div class="container-header1">
+                	<h4 class="system-title">ข้อมูลการแจ้งปัญหา</h4>
+                </div>
+					<form action="" method="post">
+						<div class="form-group">
+							<label for="report" style="margin-top: -60px;">รายการแจ้งซ่อม </label>
+						<textarea id="description" name="description" rows="5" readonly th:utext="*{rq_type + '&#10;' + rq_des}">	
+						</textarea>	
+						</div>
+						<div class="form-group">
+							<label for="report_id">หมายเลขใบแจ้งซ่อม </label>
+							<input class ="text" for="report_id" th:value="*{rq_id}" readonly>
+						</div>
+						<div class="form-group">
+							<label for="date">วันที่แจ้งซ่อม </label>
+							<input class ="text" for="date" th:value="*{rq_date}" readonly></input>
+						</div>
+						<div class="form-group">
+							<label for="requester">ผู้แจ้งซ่อม </label><input class ="req" for="requester" th:value="*{user.username}" style="flex-basis: 10%;" readonly></input>
+							<label for="number" class="tel">โทรศัพท์ติดต่อ</label><input class ="number" for="number"th:value="*{user.tel}" style="flex-basis: 1%;" readonly ></input>
+						</div>
+						<div class="form-group">
+							<label for="location">หน่วยงาน/สถานที่ </label>
+							<input class ="text" for="location" th:value="*{rq_loc}" readonly></input>
+						</div>
+						<div class="form-group" >
+							<label for="status">สถานะ:</label>
+							<input class ="status" for="status" th:value="*{rq_status}" readonly></input>
+							</input>
+						</div>
+					</form>
+			</div>
+			    <button type="submit" class="submit" onclick="">พิมพ์ใบแจ้งซ่อม</button>
+                <button type="button" class="cancel" onclick="">ยกเลิก</button>
+        </div>
+    </div>
+</body>
+    <script>
+		document.getElementById("clickable-heading").addEventListener("click", function() {
+		    window.location.href = "/";
+		});
+		document.getElementById("clickable-bars").addEventListener("click", function() {
+		    window.location.href = "/";
+		});
+		document.getElementById("clickable-plus").addEventListener("click", function() {
+		    window.location.href = "/repair_request";
+		});
+	</script>
+</html>
